@@ -1,0 +1,347 @@
+/* Importa a fonte principal */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
+
+/* Transições globais para suavizar mudanças de tema */
+* {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Variáveis de cor para temas */
+:root {
+    --cor-de-fundo: #1E1E1E;
+    --verde: #4A90E2; /* Azul substituindo o verde */
+    --branco: #FFFFFF;
+    --botao-ativo: #3A375E;
+    --botao-inativo: rgba(58, 55, 94, 0.5);
+    --texto-fundo: rgba(58, 55, 94, 0.3);
+}
+
+/* Estilo base do body */
+body {
+    background-color: var(--cor-de-fundo);
+    color: var(--branco);
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+/* Container principal do conteúdo */
+.conteudo-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Título principal animado na entrada */
+.titulo-principal {
+    text-align: left;
+    width: 100%;
+    font-size: 32px;
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+/* Cor do sublinhado piscando */
+.titulo-principal span {
+    color: var(--verde);
+}
+
+/* Animação de cursor piscando */
+.titulo-principal span:last-child {
+    animation: piscar 1s steps(2, start) infinite;
+}
+
+@keyframes piscar {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Botões das abas */
+.botoes {
+    display: block;
+    position: relative;
+}
+
+.botao {
+    font-family: 'Chakra Petch', sans-serif;
+    background-color: var(--botao-inativo);
+    color: var(--branco);
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    font-size: 18px;
+    align-items: center;
+    width: 100%;
+    border-bottom: 4px solid var(--botao-ativo);
+    border-left: 2px solid var(--botao-ativo);
+    border-right: 2px solid var(--botao-ativo);
+    border-top: none;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.botao:hover {
+    border: 2px solid var(--verde);
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    background-color: var(--botao-ativo);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.botao:first-child {
+    border-radius: 40px 40px 0 0;
+}
+
+.botao.ativo {
+    background-color: var(--botao-ativo);
+    border-bottom: 4px solid var(--verde);
+    z-index: 2;
+}
+
+@media screen and (min-width: 768px) {
+    .botoes {
+        display: flex;
+    }
+    .botao:first-child {
+        border-radius: 40px 0 0 0;
+    }
+    .botao:last-child {
+        border-radius: 0 40px 0 0;
+    }
+}
+
+/* Área das abas */
+.abas-textos {
+    background-color: var(--texto-fundo);
+    padding: 40px;
+    border-radius: 0 0 40px 40px;
+    min-height: 300px;
+    max-height: 0px; /* valor alto o suficiente */
+    transition: max-height 0.5s ease;
+    overflow: hidden;
+}
+
+.aba-conteudo {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.aba-conteudo.ativo {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.aba-conteudo-titulo-principal {
+    font-size: 28px;
+    text-align: center;
+}
+
+.aba-conteudo-titulo-secundario {
+    text-align: center;
+    color: var(--verde);
+    text-transform: uppercase;
+}
+
+/* Contador */
+.contador {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contador-digito {
+    padding: 0 16px;
+    text-align: center;
+    min-width: 100px;
+}
+
+.contador-digito-numero {
+    font-size: 80px;
+    margin: 0;
+}
+
+.contador-digito-texto {
+    color: var(--verde);
+    font-size: 20px;
+    margin: 0;
+}
+
+/* Modo claro */
+.light-mode {
+    --cor-de-fundo: #f4f4f4;
+    --branco: #000000;
+    --botao-ativo: #c4c4c4;
+    --botao-inativo: rgba(150, 150, 150, 0.5);
+    --texto-fundo: rgba(200, 200, 200, 0.3);
+    --verde: #4A90E2;
+}
+
+/* Botão de alternância de tema */
+#toggle-tema {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--botao-ativo);
+    color: var(--branco);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#toggle-tema:hover {
+    background-color: var(--verde);
+    color: #1E1E1E;
+}
+
+/* Animação de entrada das abas */
+.fade-in {
+    animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efeito flip 3D no título */
+.flip-container {
+    perspective: 1000px;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flip-card {
+    position: relative;
+    width: fit-content;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: 'Chakra Petch', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--branco);
+    backface-visibility: hidden;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.flip-front span {
+    color: var(--verde);
+    margin-left: 5px;
+}
+
+.flip-back {
+    transform: rotateX(180deg);
+    color: var(--verde);
+}
+
+.flip-container:hover .flip-card {
+    transform: rotateX(180deg);
+}
+
+#toggle-contrast {
+    position: fixed;
+    bottom: 20px;
+    right: 80px; /* Colocando ele ao lado do botão de claro/escuro */
+    background-color: var(--botao-ativo);
+    color: var(--branco);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Efeito de hover para o botão de alto contraste */
+#toggle-contrast:hover {
+    background-color: var(--botao-hover);
+    transform: scale(1.1);
+}
+
+/* Estilo para o modo de alto contraste */
+.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* Links, textos e botões */
+.high-contrast a,
+.high-contrast p,
+.high-contrast h1,
+.high-contrast h2,
+.high-contrast h3,
+.high-contrast span,
+.high-contrast label {
+  color: #fff !important;
+}
+
+/* Botões bonitinhos */
+.high-contrast .toggle-button {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+  transition: transform 0.2s ease;
+}
+
+.high-contrast .toggle-button:hover {
+  transform: scale(1.1);
+  background-color: #111 !important;
+}
+
+/* Extras como abas, cards etc */
+.high-contrast .card,
+.high-contrast .tab,
+.high-contrast .container {
+  background-color: #000 !important;
+  border: 1px solid #fff !important;
+  color: #fff !important;
+}

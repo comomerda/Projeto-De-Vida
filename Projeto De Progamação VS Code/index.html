@@ -1,0 +1,106 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus objetivos do ano</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section class="conteudo-principal">
+
+    <!-- Título com efeito de flip 3D -->
+    <div class="titulo-principal flip-container">
+      <div class="flip-card">
+        <div class="flip-front"><span id="texto-maquina"></span><span>_</span></div>
+        <div class="flip-back">Desenvolvido por Caio & Ise</div>
+      </div>
+    </div>
+
+    <div class="conteudo">
+
+      <!-- Botões de abas -->
+      <div class="botoes">
+        <button class="botao ativo">Casa Própria</button>
+        <button class="botao">Terminar a Faculdade</button>
+        <button class="botao">Se Casar</button>
+        <button class="botao">Se Formar em Psicologia</button>
+      </div>
+
+      <!-- Conteúdos das abas -->
+      <div class="abas-textos" id="abasTexto">
+
+        <!-- Aba 1 -->
+        <div class="aba-conteudo ativo">
+          <h3 class="aba-conteudo-titulo-principal">Já estar morando sozinho</h3>
+          <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
+          <div class="contador">
+            <div class="contador-digito"><p class="contador-digito-numero" id="dias0"></p><p class="contador-digito-texto">dias</p></div>
+            <div class="contador-digito"><p class="contador-digito-numero" id="horas0"></p><p class="contador-digito-texto">horas</p></div>
+            <div class="contador-digito"><p class="contador-digito-numero" id="min0"></p><p class="contador-digito-texto">min</p></div>
+            <div class="contador-digito"><p class="contador-digito-numero" id="seg0"></p><p class="contador-digito-texto">seg</p></div>
+          </div>
+        </div>
+
+        <!-- Aba 2 -->
+        <div class="aba-conteudo">
+          <h3 class="aba-conteudo-titulo-principal">Terminar a Faculdade de <br>Engenharia de Software<br></h3>
+          <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
+          <div class="contador">
+            <div class="contador-digito"><p class="contador-digito-numero" id="dias1"></p><p class="contador-digito-texto">dias</p></div>
+            <div class="contador-digito"><p class="contador-digito-numero" id="horas1"></p><p class="contador-digito-texto">horas</p></div>
+            <div class="contador-digito"><p class="contador-digito-numero" id="min1"></p><p class="contador-digito-texto">min</p></div>
+            <div class="contador-digito"><p class="contador-digito-numero" id="seg1"></p><p class="contador-digito-texto">seg</p></div>
+          </div>
+        </div>
+
+        <!-- Aba 3 -->
+        <div class="aba-conteudo">
+          <h3 class="aba-conteudo-titulo-principal">Tempo para eu me casar</h3>
+          <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
+          <div class="contador">
+            <div class="contador-digito"><p class="contador-digito-numero" id="dias2"></p><p class="contador-digito-texto">dias</p></div>
+            <div class="contador-digito"><p class="contador-digito-numero" id="horas2"></p><p class="contador-digito-texto">horas</p></div>
+            <div class="contador-digito"><p class="contador-digito-numero" id="min2"></p><p class="contador-digito-texto">min</p></div>
+            <div class="contador-digito"><p class="contador-digito-numero" id="seg2"></p><p class="contador-digito-texto">seg</p></div>
+          </div>
+        </div>
+
+        <!-- Aba 4 -->
+        <div class="aba-conteudo">
+          <h3 class="aba-conteudo-titulo-principal">Tempo para eu me formar</h3>
+          <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
+          <div class="contador">
+            <div class="contador-digito"><p class="contador-digito-numero" id="dias3"></p><p class="contador-digito-texto">dias</p></div>
+            <div class="contador-digito"><p class="contador-digito-numero" id="horas3"></p><p class="contador-digito-texto">horas</p></div>
+            <div class="contador-digito"><p class="contador-digito-numero" id="min3"></p><p class="contador-digito-texto">min</p></div>
+            <div class="contador-digito"><p class="contador-digito-numero" id="seg3"></p><p class="contador-digito-texto">seg</p></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Botão de alternância de tema -->
+  <button id="toggle-tema">🌙</button>
+
+  <!-- Botão secreto para ativar o mini-game -->
+<button id="botao-mini-game" style="position: fixed; bottom: 5px; left: 5px; opacity: 0.1; z-index: 1000;">🎮</button>
+
+<!-- Área do mini-game oculta -->
+<div id="pong-game" style="display: none; position: fixed; bottom: 60px; left: 20px; width: 300px; height: 200px; background: black; z-index: 1000;">
+  <canvas id="pong-canvas" width="300" height="200"></canvas>
+</div>
+
+<button id="toggle-contrast" class="toggle-button">🔳</button>
+
+
+  <!-- Script principal -->
+  <script src="main.js"></script>
+</body>
+
+</html>
